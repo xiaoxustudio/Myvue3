@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cs"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+    <script>
+        let { ref , shallowRef , effect} = VueReactivity
+        let obj = ref({num : "123"})
+        effect(()=>{
+            cs.innerHTML = "徐然" + obj.value.num
+        })
+        setTimeout(() => {
+            obj.value.asadasd = "xuran"
+        }, 1000);
+        console.log(obj)
+    </script>
+</body>
+
+</html>

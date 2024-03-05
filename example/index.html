@@ -1,0 +1,46 @@
+<!--
+ * @Author: xuranXYS
+ * @LastEditTime: 2024-03-04 22:39:11
+ * @GitHub: www.github.com/xiaoxustudio
+ * @WebSite: www.xiaoxustudio.top
+ * @Description: By xuranXYS
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cs"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+    <script>
+        let { reactive, readonly, shallowReactive, shallowReadonly, effect } = VueReactivity
+        let state = reactive({
+            name: "测试",
+            age: {
+                num: 15
+            },
+            arr: [1, 2, 3]
+        })
+        // const ef = effect(() => {
+        //     cs.innerHTML = state.arr
+        // })
+        // setTimeout(() => {
+        //     state.arr[100] = 1
+        // }, 1000)
+        const ef = effect(() => {
+            cs.innerHTML = state.arr[2]
+        })
+        setTimeout(() => {
+            state.arr.length = 1
+            state.arr.length = 2
+            state.arr.length = 1
+        }, 1000)
+    </script>
+</body>
+
+</html>

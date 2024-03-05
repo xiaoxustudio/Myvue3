@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cs"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+    <script>
+        let { ref , toRef , toRefs , shallowRef , effect , reactive} = VueReactivity
+        let px = reactive({num : "123",age : 456})
+        // let obj = toRef(px,"num")
+
+        let r = toRefs(px)
+        console.log(r)
+        effect(()=>{
+            cs.innerHTML = "徐然"+ r.num.value + r.age.value
+        })
+        setTimeout(() => {
+            px.num = "xuran"
+        }, 1000);
+    </script>
+</body>
+
+</html>
